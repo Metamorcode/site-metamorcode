@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Fundo (agora escuro, ao estilo Sage) ── */
+  --color-bg: #08060b;         /* preto levemente violeta — fundo principal */
+  --color-bg-alt: #100b18;     /* variação para alternar seções */
+  --color-bg-alt2: #150e21;    /* um pouco mais clara ainda, para cartões escuros */
+
+  /* ── Texto em cima do fundo escuro ── */
+  --color-onDark: #f5f2f8;
+  --color-onDark-soft: #b6acc4;
+  --color-onDark-faint: #7d7189;
+
+  /* ── Texto dentro de cartões brancos (inalterado) ── */
+  --color-ink: #2a1638;
+  --color-ink-soft: #6e5c7c;
+  --color-ink-faint: #9c8caa;
+
+  /* ── Marca: roxo exato extraído do logótipo Metamorcode ── */
+  --color-primary: #5b0073;
+  --color-primary-hover: #7a1f96;
+  --color-primary-dark: #46005a;
+  --color-primary-deep: #2b0038;
+  --color-primary-50: #f4ecf6;
+  --color-accent: #a94fc4;
+  --color-gold: #d9a441;
+  --color-green: #2c7a45;
+  --color-cyan: #22d3ee;
+  --color-rose: #f472b6;
+  --color-amber: #f59e0b;
+
+  /* ── Cinza escuro moderno (substitui o antigo #F8FAFC, claro demais) ── */
+  --color-surface: #18151d;
+  --color-surface-alt: #211c29;
+
+  --color-card-border: #ece7f2;      /* borda em cartões brancos */
+  --color-card-border-hover: #d9cdec;
+  --color-line-dark: rgba(255,255,255,0.08); /* linhas/divisórias no fundo escuro */
+
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+
+  /* mapeamento para os componentes shadcn */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-onDark);
+  --color-border: var(--color-card-border);
+  --color-input: var(--color-card-border);
+  --color-ring: var(--color-primary);
+  --color-secondary: var(--color-bg-alt);
+  --color-secondary-foreground: var(--color-onDark);
+  --color-muted: var(--color-bg-alt);
+  --color-muted-foreground: var(--color-onDark-soft);
+  --color-destructive: #f87171;
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--color-ink);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--color-ink);
+  --color-primary-foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-onDark);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Logo (borboleta escura) invertido para ficar visível sobre fundo escuro */
+.logo-on-dark {
+  filter: invert(1) brightness(1.6) saturate(0.6);
+}
+
+/* Leve "respiração" na foto — sugere o vídeo que vai substituí-la */
+@keyframes hero-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+.hero-breathe {
+  animation: hero-breathe 8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-breathe { animation: none; }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: toast-in 0.35s ease-out;
+}
+
+/* Scroll-reveal usado pelo componente <Reveal> */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Transição suave entre seções escuras (usada pelo SectionWave) */
+.section-wave {
+  display: block;
+  width: 100%;
+  height: auto;
+}
