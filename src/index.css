@@ -37,7 +37,7 @@
   --color-card-border-hover: #d9cdec;
   --color-line-dark: rgba(255,255,255,0.08); /* linhas/divisórias no fundo escuro */
 
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Nunito", "Inter", -apple-system, sans-serif;
   --font-body: "Inter", -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 

@@ -103,12 +103,22 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:block">
-          <Button
-            asChild
-            className="bg-primary hover:bg-primary-hover text-white rounded-full"
-          >
-            <Link to="/suporte#contacto">Agendar Demonstração</Link>
-          </Button>
+          <div className="group/cta relative inline-block overflow-hidden rounded-full p-[2px]">
+            <div
+              className="absolute inset-[-150%] opacity-0 transition-opacity duration-300 group-hover/cta:opacity-100"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent 0deg, transparent 260deg, #e9c6f5 300deg, #a94fc4 330deg, transparent 360deg)",
+                animation: "ctaSpin 1.6s linear infinite",
+              }}
+            />
+            <Button
+              asChild
+              className="relative rounded-full border-2 border-accent bg-black text-white shadow-[0_0_16px_rgba(169,79,196,0.45)] transition-shadow duration-300 hover:bg-accent/10 group-hover/cta:shadow-[0_0_30px_rgba(169,79,196,0.8)]"
+            >
+              <Link to="/suporte#contacto">Agendar Demonstração</Link>
+            </Button>
+          </div>
         </div>
 
         {/* Botão mobile */}
@@ -158,7 +168,7 @@ export default function Header() {
           </div>
           <Button
             asChild
-            className="mt-4 w-full bg-primary hover:bg-primary-hover text-white rounded-full"
+            className="mt-4 w-full rounded-full border-2 border-accent bg-transparent text-white shadow-[0_0_16px_rgba(169,79,196,0.45)] hover:bg-accent/10"
           >
             <Link to="/suporte#contacto" onClick={() => setMobileOpen(false)}>
               Agendar Demonstração
@@ -166,6 +176,16 @@ export default function Header() {
           </Button>
         </div>
       )}
+
+      <style>{`
+        @keyframes ctaSpin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [style*="ctaSpin"] { animation: none !important; }
+        }
+      `}</style>
     </header>
   );
 }

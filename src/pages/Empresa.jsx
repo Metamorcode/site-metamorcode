@@ -20,12 +20,7 @@ export default function Empresa() {
         </div>
       </section>
       <AboutTeaser />
-      <Testimonial
-        quote="Já não sei o que é ficar até tarde da noite a conferir todas as folhas de ponto dos colaboradores, para poder concluir o financeiro a tempo."
-        author="Edu Marques"
-        role="Fundador, Cuidar de Si"
-        initials="EM"
-      />
+      <Testimonial />
     </>
   );
 }

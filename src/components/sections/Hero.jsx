@@ -8,7 +8,7 @@ export default function Hero() {
           ERP Operacional Multi-Empresa
         </span>
 
-        <h1 className="mt-8 font-display text-7xl font-bold leading-[0.95] text-white lg:text-5xl">
+        <h1 className="mt-8 font-display text-7xl font-extrabold leading-[0.95] text-white lg:text-7xl">
           MetaSenior<span className="text-accent"> ERP</span>
         </h1>
 
