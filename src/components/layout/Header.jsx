@@ -103,9 +103,9 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:block">
-          <div className="group/cta relative inline-block overflow-hidden rounded-full p-[2px]">
+          <div className="relative inline-block overflow-hidden rounded-full p-[2px]">
             <div
-              className="absolute inset-[-150%] opacity-0 transition-opacity duration-300 group-hover/cta:opacity-100"
+              className="absolute inset-[-150%]"
               style={{
                 background:
                   "conic-gradient(from 0deg, transparent 0deg, transparent 260deg, #e9c6f5 300deg, #a94fc4 330deg, transparent 360deg)",
@@ -114,7 +114,7 @@ export default function Header() {
             />
             <Button
               asChild
-              className="relative rounded-full border-2 border-accent bg-black text-white shadow-[0_0_16px_rgba(169,79,196,0.45)] transition-shadow duration-300 hover:bg-accent/10 group-hover/cta:shadow-[0_0_30px_rgba(169,79,196,0.8)]"
+              className="relative rounded-full border-2 border-accent bg-black text-white hover:bg-accent/10"
             >
               <Link to="/suporte#contacto">Agendar Demonstração</Link>
             </Button>

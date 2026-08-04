@@ -14,8 +14,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroWaves from '@/assets/hero-waves.mp4';
-import heroWavesPoster from '@/assets/hero-waves-poster.jpg';
+import HeroWavesCanvas from './HeroWavesCanvas';
 import MiniDashboardMock from './MiniDashboardMock';
 import MetaBoxMock from './MetaBoxMock';
 import { metaboxFeatures } from '@/data/metabox';
@@ -393,16 +392,8 @@ export default function HeroModulesShowcase() {
       </div>
 
       <div className="relative mx-[calc(-50vw_+_50%)] mt-10 w-screen overflow-hidden">
-        {/* Vídeo de ondas roxas em loop, encostado nas laterais da tela, restrito apenas à área dos cards */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src={heroWaves}
-          poster={heroWavesPoster}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+        {/* Animação de ondas em canvas, restrita apenas à área dos cards */}
+        <HeroWavesCanvas />
         <div className="absolute inset-0 bg-black/40" />
 
         <div
