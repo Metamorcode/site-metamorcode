@@ -6,7 +6,22 @@ import { Button } from "@/components/ui/button";
 import { modules } from "@/data/modules";
 import { metabox, metaboxFeatures } from "@/data/metabox";
 import { roadmap, statusStyles } from "@/data/roadmap";
+import { rhEscalasFaq, rhEscalasFinalCta } from "@/data/rhEscalas";
+import { financeiroFaq, financeiroFinalCta } from "@/data/financeiro";
 import MetaBoxMock from "@/components/sections/MetaBoxMock";
+import RhEscalasHero from "@/components/sections/RhEscalasHero";
+import RhEscalasPainPoints from "@/components/sections/RhEscalasPainPoints";
+import RhEscalasAvailabilitySimulator from "@/components/sections/RhEscalasAvailabilitySimulator";
+import OpenShiftTimeline from "@/components/sections/OpenShiftTimeline";
+import RhEscalasFeatures from "@/components/sections/RhEscalasFeatures";
+import RhEscalasProof from "@/components/sections/RhEscalasProof";
+import FinanceiroHero from "@/components/sections/FinanceiroHero";
+import FinanceiroPainPoints from "@/components/sections/FinanceiroPainPoints";
+import FinanceiroCalculatorWidget from "@/components/sections/FinanceiroCalculatorWidget";
+import FinanceiroFeatures from "@/components/sections/FinanceiroFeatures";
+import FinanceiroProof from "@/components/sections/FinanceiroProof";
+import FAQSection from "@/components/sections/FAQSection";
+import FinalCTA from "@/components/sections/FinalCTA";
 import Reveal from "@/components/Reveal";
 
 const icons = { CalendarClock, Banknote, Wallet, Building2, Nfc, MonitorSmartphone, ShieldCheck };
@@ -15,7 +30,38 @@ export default function ModuleDetailPage() {
   const { slug } = useParams();
   const module = modules.find((m) => m.slug === slug);
   const isMetabox = slug === "metabox";
+  const isRhEscalas = slug === "rh-escalas";
+  const isFinanceiro = slug === "financeiro-billing";
   const item = roadmap.find((p) => p.slug === slug);
+
+  if (isRhEscalas) {
+    return (
+      <>
+        <RhEscalasHero />
+        <RhEscalasPainPoints />
+        <RhEscalasAvailabilitySimulator />
+        <OpenShiftTimeline />
+        <RhEscalasFeatures />
+        <RhEscalasProof />
+        <FAQSection items={rhEscalasFaq} />
+        <FinalCTA {...rhEscalasFinalCta} />
+      </>
+    );
+  }
+
+  if (isFinanceiro) {
+    return (
+      <>
+        <FinanceiroHero />
+        <FinanceiroPainPoints />
+        <FinanceiroCalculatorWidget />
+        <FinanceiroFeatures />
+        <FinanceiroProof />
+        <FAQSection items={financeiroFaq} />
+        <FinalCTA {...financeiroFinalCta} />
+      </>
+    );
+  }
 
   if (module) {
     const Icon = icons[module.icon];
@@ -27,7 +73,7 @@ export default function ModuleDetailPage() {
               <Icon className="h-7 w-7" />
             </span>
             <span className="mt-5 block text-xs font-semibold uppercase tracking-wide text-primary">
-              Módulo do MetaSenior ERP
+              Módulo do MetaSenior
             </span>
             <h1 className="mt-2 font-display text-4xl text-slate-900">{module.name}</h1>
             <p className="mt-4 text-lg text-slate-500">{module.description}</p>

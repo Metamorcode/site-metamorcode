@@ -6,7 +6,7 @@ export const metabox = {
   name: "MetaBox (IoT)",
   tagline: "Terminal físico de assiduidade",
   description:
-    "O terminal físico que liga a operação no terreno ao MetaSenior ERP, em tempo real.",
+    "O terminal físico que liga a operação no terreno ao MetaSenior, em tempo real.",
 };
 
 export const metaboxFeatures = [

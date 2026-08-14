@@ -1,7 +1,7 @@
 export const faqItems = [
   {
     q: "É preciso instalar algum programa ou servidor?",
-    a: "Não. O MetaSenior ERP funciona no browser, em qualquer computador, tablet ou telemóvel com internet. O MetaBox é o único equipamento físico, e é opcional.",
+    a: "Não. O MetaSenior funciona no browser, em qualquer computador, tablet ou telemóvel com internet. O MetaBox é o único equipamento físico, e é opcional.",
   },
   {
     q: "O MetaBox substitui por completo as folhas de ponto em papel?",

@@ -20,7 +20,7 @@ export default function ProductPage() {
             <Icon className="h-7 w-7" />
           </span>
           <span className="mt-5 block text-xs font-semibold uppercase tracking-wide text-primary">
-            Módulo do MetaSenior ERP
+            Módulo do MetaSenior
           </span>
           <h1 className="mt-2 font-display text-4xl text-slate-900">{module.name}</h1>
           <p className="mt-4 text-lg text-slate-500">{module.description}</p>

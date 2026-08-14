@@ -85,7 +85,7 @@ export default function ContactForm() {
                 <SelectItem value="tesouraria-opex">Tesouraria & Controlo de Despesas</SelectItem>
                 <SelectItem value="multi-empresa">Arquitetura Multi-Empresa</SelectItem>
                 <SelectItem value="metabox">MetaBox (IoT)</SelectItem>
-                <SelectItem value="erp-completo">MetaSenior ERP completo</SelectItem>
+                <SelectItem value="erp-completo">MetaSenior completo</SelectItem>
                 <SelectItem value="roadmap">Roadmap de inovação (Life, Predict, Watch, Sensor)</SelectItem>
               </SelectContent>
             </Select>

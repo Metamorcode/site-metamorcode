@@ -1,7 +1,16 @@
 // Roadmap de inovação Metamorcode — produtos futuros do ecossistema AgeTech,
-// que se conectam ao MetaSenior ERP mas ainda não fazem parte do núcleo.
+// que se conectam ao MetaSenior mas ainda não fazem parte do núcleo.
 
 export const roadmap = [
+  {
+    slug: "toconline",
+    name: "Integração Contabilística (TOConline)",
+    status: "soon",
+    statusLabel: "Em breve",
+    tagline: "Sincronização com a contabilidade",
+    description:
+      "Sincronização automatizada de Vendas, Compras e Contabilidade Analítica diretamente na plataforma oficial dos Contabilistas Certificados (OCC).",
+  },
   {
     slug: "life",
     name: "Harmony Life",

@@ -16,7 +16,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-white/50">
-              O ERP operacional multi-empresa para equipas de cuidado sénior.
+              O Workforce ERP multi-empresa para equipas de cuidado sénior.
               <br />
               Porto, Portugal.
             </p>
@@ -117,7 +117,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/30 sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 Metamorcode · Todos os direitos reservados</span>
-          <span>MetaSenior ERP é um produto da Metamorcode</span>
+          <span>MetaSenior é um produto da Metamorcode</span>
         </div>
       </div>
     </footer>

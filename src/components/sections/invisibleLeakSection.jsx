@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   CalendarClock,
   Users,
@@ -15,84 +15,95 @@ import {
   Droplets,
   MessageCircleWarning,
   Sparkles,
-} from "lucide-react";
+} from 'lucide-react';
 
 const CYCLE_MS = 2000;
 
 // Cor única (roxo da marca) para todas as gotas — o ciclo já não varia a cor.
-const LEAK_COLOR = "#a94fc4";
+const LEAK_COLOR = '#a94fc4';
 
 // As 4 gotas que a torneira pinga, em ordem de ciclo.
 const LEAKS = [
   {
-    id: "escala",
+    id: 'escala',
     icon: CalendarClock,
     color: LEAK_COLOR,
-    title: "Montar a Escala",
+    title: 'Montar a Escala',
     description:
-      "Verificar a disponibilidade de cada colaborador, à mão, toda semana — tempo do gestor que devia estar a resolver outra coisa.",
+      'Verificar disponibilidade de cada colaborador à mão toda semana consome tempo do gestor necessário para outras prioridades',
     sinal:
-      "O sintoma: a escala do mês só fica pronta na véspera, e ainda muda três vezes.",
+      'O sintoma: escala do mês pronta apenas na véspera, muda ainda três vezes após',
     tags: [
-      { icon: Users, label: "Disponibilidade checada uma a uma" },
-      { icon: AlertTriangle, label: "Conflitos só aparecem depois de fechar" },
-      { icon: MessageCircleWarning, label: "Trocas de turno combinadas por WhatsApp" },
+      { icon: Users, label: 'Disponibilidade checada uma a uma' },
+      { icon: AlertTriangle, label: 'Conflitos só aparecem depois de fechar' },
+      {
+        icon: MessageCircleWarning,
+        label: 'Trocas de turno combinadas por WhatsApp',
+      },
     ],
     solucao:
-      "Com o MetaSenior: a disponibilidade e os conflitos aparecem sozinhos, antes de fechar a escala.",
+      'Com o MetaSenior, disponibilidade e conflitos aparecem sozinhos antes de fechar a escala',
   },
   {
-    id: "folha",
+    id: 'folha',
     icon: ClipboardCheck,
     color: LEAK_COLOR,
-    title: "Conferir a Folha",
+    title: 'Conferir a Folha',
     description:
-      "Cruzar picagens com valores, mês após mês, à procura do erro que sempre aparece.",
-    sinal: "O sintoma: o financeiro reabre a folha três vezes antes de a aprovar.",
+      'Cruzar picagens com valores mês após mês procurando o erro que sempre surge',
+    sinal:
+      'O sintoma: financeiro reabre a folha três vezes até conseguir aprová-la',
     tags: [
-      { icon: Fingerprint, label: "Picagens cruzadas manualmente" },
-      { icon: RefreshCw, label: "O mesmo erro, todos os meses" },
-      { icon: CalendarClock, label: "Feriados e turnos noturnos calculados à mão" },
+      { icon: Fingerprint, label: 'Picagens cruzadas manualmente' },
+      { icon: RefreshCw, label: 'O mesmo erro, todos os meses' },
+      {
+        icon: CalendarClock,
+        label: 'Feriados e turnos noturnos calculados à mão',
+      },
     ],
     solucao:
-      "Com o MetaSenior: a picagem chega já cruzada com a escala — sem reabrir nada.",
+      'Com o MetaSenior, a picagem chega cruzada com a escala, sem reabrir',
   },
   {
-    id: "cascata",
+    id: 'cascata',
     icon: Waves,
     color: LEAK_COLOR,
-    title: "Efeito Bola de Neve",
+    title: 'Efeito Bola de Neve',
     description:
-      "Um atraso empurra o seguinte. Nunca aparece isolado — aparece na operação toda.",
-    sinal: "O sintoma: um imprevisto de manhã ainda está a ser resolvido ao fim do dia.",
+      'Um atraso puxa o seguinte, nunca fica isolado, espalha-se pela operação toda',
+    sinal:
+      'O sintoma: um imprevisto matinal continua a ser resolvido ao anoitecer',
     tags: [
-      { icon: Clock, label: "Um atraso puxa o próximo" },
-      { icon: Workflow, label: "Passa de turno em turno" },
-      { icon: AlertTriangle, label: "Ninguém percebe a causa original" },
+      { icon: Clock, label: 'Um atraso puxa o próximo' },
+      { icon: Workflow, label: 'Passa de turno em turno' },
+      { icon: AlertTriangle, label: 'Ninguém percebe a causa original' },
     ],
     solucao:
-      "Com o MetaSenior: o alerta chega no momento, antes de o atraso se espalhar.",
+      'Com o MetaSenior, o alerta chega atempadamente, evitando que o atraso se espalhe',
   },
   {
-    id: "pagamento",
+    id: 'pagamento',
     icon: Banknote,
     color: LEAK_COLOR,
-    title: "Confirmar e Pagar",
+    title: 'Confirmar e Pagar',
     description:
-      "Entre fechar os valores e a transferência cair certa, no dia certo, perde-se tempo previsível.",
-    sinal: "O sintoma: o colaborador liga a perguntar se o pagamento já saiu.",
+      'Fechar valores e efetuar transferência correta no dia exato consome tempo previsível',
+    sinal: 'O sintoma: o colaborador liga a confirmar se o pagamento já saiu',
     tags: [
-      { icon: Landmark, label: "Confirmação antes da transferência" },
-      { icon: CalendarClock, label: "A data certa, todos os meses" },
-      { icon: RefreshCw, label: "Reconciliação manual com o TOConline" },
+      { icon: Landmark, label: 'Confirmação antes da transferência' },
+      { icon: CalendarClock, label: 'A data certa, todos os meses' },
+      {
+        icon: RefreshCw,
+        label: 'Reconciliação manual de recibos e transferências',
+      },
     ],
     solucao:
-      "Com o MetaSenior: os valores confirmam-se sozinhos e a transferência sai na data certa.",
+      'Com o MetaSenior, valores confirmam-se automaticamente e transferência sai no dia certo',
   },
 ];
 
 function hexToRgba(hex, alpha) {
-  const h = hex.replace("#", "");
+  const h = hex.replace('#', '');
   const r = parseInt(h.substring(0, 2), 16);
   const g = parseInt(h.substring(2, 4), 16);
   const b = parseInt(h.substring(4, 6), 16);
@@ -123,7 +134,7 @@ export default function LeakingFaucetSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
             <span
               className="h-1.5 w-1.5 rounded-full bg-accent"
-              style={{ animation: "livePulse 2s ease-in-out infinite" }}
+              style={{ animation: 'livePulse 2s ease-in-out infinite' }}
             />
             Onde o dinheiro está a fugir
           </span>
@@ -168,11 +179,34 @@ export default function LeakingFaucetSection() {
               <rect x="9" y="37" width="8" height="24" rx="2" fill="#18181b" />
 
               {/* colarinho da válvula */}
-              <rect x="27" y="27" width="24" height="11" rx="4" fill="url(#faucetLight)" stroke="#18181b" strokeWidth="0.5" />
+              <rect
+                x="27"
+                y="27"
+                width="24"
+                height="11"
+                rx="4"
+                fill="url(#faucetLight)"
+                stroke="#18181b"
+                strokeWidth="0.5"
+              />
               {/* haste */}
-              <rect x="32" y="15" width="14" height="16" rx="3" fill="url(#faucetMetal)" />
+              <rect
+                x="32"
+                y="15"
+                width="14"
+                height="16"
+                rx="3"
+                fill="url(#faucetMetal)"
+              />
               {/* bonnet */}
-              <circle cx="39" cy="15" r="9" fill="url(#faucetLight)" stroke="#18181b" strokeWidth="0.5" />
+              <circle
+                cx="39"
+                cy="15"
+                r="9"
+                fill="url(#faucetLight)"
+                stroke="#18181b"
+                strokeWidth="0.5"
+              />
               {/* manípulo em T */}
               <rect
                 x="20"
@@ -187,14 +221,64 @@ export default function LeakingFaucetSection() {
               />
 
               {/* brilhos */}
-              <rect x="25" y="9.5" width="8" height="2" rx="1" fill="#f4f4f5" opacity="0.7" transform="rotate(-6 39 11.5)" />
-              <rect x="40" y="9.5" width="10" height="2" rx="1" fill="#f4f4f5" opacity="0.5" transform="rotate(-6 39 11.5)" />
-              <path d="M 51 42 A 24 24 0 0 1 67 62" fill="none" stroke="#e4e4e7" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
-              <line x1="67" y1="72" x2="67" y2="98" stroke="#e4e4e7" strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
-              <rect x="19" y="47" width="14" height="2" rx="1" fill="#e4e4e7" opacity="0.35" />
+              <rect
+                x="25"
+                y="9.5"
+                width="8"
+                height="2"
+                rx="1"
+                fill="#f4f4f5"
+                opacity="0.7"
+                transform="rotate(-6 39 11.5)"
+              />
+              <rect
+                x="40"
+                y="9.5"
+                width="10"
+                height="2"
+                rx="1"
+                fill="#f4f4f5"
+                opacity="0.5"
+                transform="rotate(-6 39 11.5)"
+              />
+              <path
+                d="M 51 42 A 24 24 0 0 1 67 62"
+                fill="none"
+                stroke="#e4e4e7"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.5"
+              />
+              <line
+                x1="67"
+                y1="72"
+                x2="67"
+                y2="98"
+                stroke="#e4e4e7"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+              />
+              <rect
+                x="19"
+                y="47"
+                width="14"
+                height="2"
+                rx="1"
+                fill="#e4e4e7"
+                opacity="0.35"
+              />
 
               {/* abertura do bico */}
-              <rect x="49" y="105" width="22" height="4" rx="1" fill="#0a0a0a" opacity="0.6" />
+              <rect
+                x="49"
+                y="105"
+                width="22"
+                height="4"
+                rx="1"
+                fill="#0a0a0a"
+                opacity="0.6"
+              />
             </svg>
 
             {/* gota a cair */}
@@ -202,14 +286,14 @@ export default function LeakingFaucetSection() {
               key={index}
               className="absolute left-1/2 top-[194px] h-4 w-3.5 -translate-x-1/2"
               style={{
-                borderRadius: "50% 50% 50% 50% / 62% 62% 38% 38%",
+                borderRadius: '50% 50% 50% 50% / 62% 62% 38% 38%',
                 background: `linear-gradient(180deg, ${hexToRgba(
                   active.color,
-                  0.95
+                  0.95,
                 )}, ${hexToRgba(active.color, 0.65)})`,
                 boxShadow: `0 0 10px ${hexToRgba(active.color, 0.55)}`,
                 animation: `dripFall ${CYCLE_MS}ms linear infinite`,
-                animationPlayState: paused ? "paused" : "running",
+                animationPlayState: paused ? 'paused' : 'running',
               }}
             />
 
@@ -231,9 +315,9 @@ export default function LeakingFaucetSection() {
               className="relative overflow-hidden rounded-2xl border p-6 sm:p-7"
               style={{
                 borderColor: hexToRgba(active.color, 0.35),
-                background: "#000",
+                background: '#000',
                 boxShadow: `0 0 30px ${hexToRgba(active.color, 0.12)}`,
-                animation: "cardIn 0.45s ease",
+                animation: 'cardIn 0.45s ease',
               }}
             >
               <div className="flex items-center gap-3">
@@ -241,9 +325,14 @@ export default function LeakingFaucetSection() {
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
                   style={{ background: hexToRgba(active.color, 0.18) }}
                 >
-                  <ActiveIcon className="h-5 w-5" style={{ color: active.color }} />
+                  <ActiveIcon
+                    className="h-5 w-5"
+                    style={{ color: active.color }}
+                  />
                 </span>
-                <p className="font-display text-2xl text-white sm:text-3xl">{active.title}</p>
+                <p className="font-display text-2xl text-white sm:text-3xl">
+                  {active.title}
+                </p>
               </div>
 
               <p className="mt-3 text-sm leading-relaxed text-white/70">
@@ -265,7 +354,10 @@ export default function LeakingFaucetSection() {
                       key={tag.label}
                       className="flex items-center gap-2 text-xs text-white/55"
                     >
-                      <TagIcon className="h-3.5 w-3.5 shrink-0" style={{ color: active.color }} />
+                      <TagIcon
+                        className="h-3.5 w-3.5 shrink-0"
+                        style={{ color: active.color }}
+                      />
                       {tag.label}
                     </li>
                   );
@@ -298,7 +390,7 @@ export default function LeakingFaucetSection() {
                   style={{
                     width: i === index ? 22 : 8,
                     background:
-                      i === index ? leak.color : "rgba(255,255,255,0.15)",
+                      i === index ? leak.color : 'rgba(255,255,255,0.15)',
                   }}
                 />
               ))}
@@ -318,8 +410,8 @@ export default function LeakingFaucetSection() {
               </p>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Sabe exatamente quanto paga, todos os meses. Está sempre à
-              vista, num único valor fixo.
+              Sabe exatamente quanto paga, todos os meses. Está sempre à vista,
+              num único valor fixo.
             </p>
           </div>
 

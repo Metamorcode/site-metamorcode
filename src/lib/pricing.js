@@ -12,14 +12,14 @@ export function getDeviceRate(devices) {
 }
 
 /**
- * Calcula a mensalidade do MetaSenior ERP.
+ * Calcula a mensalidade do MetaSenior.
  * Retorna { valid, reason, breakdown, total } — breakdown detalha cada parcela.
  */
 export function calculatePricing({ employees, devices }) {
   if (employees < MIN_EMPLOYEES) {
     return {
       valid: false,
-      reason: `O MetaSenior ERP exige um mínimo de ${MIN_EMPLOYEES} licenças de colaboradores.`,
+      reason: `O MetaSenior exige um mínimo de ${MIN_EMPLOYEES} licenças de colaboradores.`,
     };
   }
 

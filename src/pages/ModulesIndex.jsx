@@ -17,7 +17,7 @@ export default function ModulesIndex() {
             Módulos e Soluções
           </span>
           <h1 className="mt-3 font-display text-4xl text-white lg:text-5xl">
-            Tudo o que o MetaSenior ERP resolve
+            Tudo o que o MetaSenior resolve
           </h1>
           <p className="mt-4 text-slate-300">
             Da gestão de RH ao hardware de assiduidade, cada peça foi pensada

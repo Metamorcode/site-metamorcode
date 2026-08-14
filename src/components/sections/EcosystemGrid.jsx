@@ -17,7 +17,7 @@ export default function EcosystemGrid() {
             Roadmap de inovação
           </span>
           <h2 className="mt-3 font-display text-3xl text-white lg:text-4xl">
-            O que vem a seguir ao MetaSenior ERP
+            O que vem a seguir ao MetaSenior
           </h2>
           <p className="mt-4 text-slate-300">
             Além da gestão da equipa, estamos a construir a próxima geração

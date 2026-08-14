@@ -16,8 +16,8 @@ export default function MetaBoxSection() {
               MetaBox
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-white/60">
-              O terminal físico que liga a operação no terreno ao MetaSenior
-              ERP, em tempo real.
+              O terminal físico que liga a operação no terreno ao MetaSenior,
+              em tempo real.
             </p>
 
             <div className="mt-8 space-y-6">

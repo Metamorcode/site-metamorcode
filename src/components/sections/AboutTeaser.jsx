@@ -34,8 +34,9 @@ export default function AboutTeaser() {
             perto os desafios reais de quem gere equipas de cuidados —
             escalas feitas à mão, madrugadas perdidas a fechar o
             processamento salarial, informação espalhada por cadernos e
-            ficheiros soltos — construímos o <strong>MetaSenior ERP</strong>:
-            um sistema único que gere toda a equipa, do contrato à fatura.
+            ficheiros soltos — construímos o <strong>MetaSenior</strong>, o
+            Workforce ERP para equipas de cuidado sénior: um sistema único
+            que gere toda a equipa, do contrato à fatura.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">

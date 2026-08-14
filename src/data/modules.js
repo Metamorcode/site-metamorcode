@@ -1,4 +1,4 @@
-// Módulos centrais do MetaSenior ERP (plataforma SaaS).
+// Módulos centrais do MetaSenior, o Workforce ERP (plataforma SaaS).
 
 export const modules = [
   {

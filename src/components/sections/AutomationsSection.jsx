@@ -12,17 +12,17 @@ export default function AutomationsSection() {
             Motor de automações & comunicação
           </span>
           <h2 className="mt-3 font-display text-3xl text-slate-900 lg:text-4xl">
-            O ERP fala com a sua equipa e com a sua contabilidade
+            O Workforce ERP que fala com a sua equipa
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 flex justify-center">
           {automations.map((a) => {
             const Icon = icons[a.icon];
             return (
               <div
                 key={a.name}
-                className="rounded-xl border border-white/10 bg-surface p-8 shadow-sm"
+                className="w-full max-w-md rounded-xl border border-white/10 bg-surface p-8 shadow-sm"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white">
                   <Icon className="h-6 w-6" />

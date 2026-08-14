@@ -6,9 +6,9 @@ import {
 } from "@/components/ui/accordion";
 import { faqItems } from "@/data/faq";
 
-export default function FAQSection({ showHeading = true }) {
+export default function FAQSection({ showHeading = true, items = faqItems, id }) {
   return (
-    <section className="bg-white py-20">
+    <section id={id} className="bg-white py-20">
       <div className="mx-auto max-w-3xl px-6">
         {showHeading && (
           <div className="mb-10 text-center">
@@ -22,7 +22,7 @@ export default function FAQSection({ showHeading = true }) {
         )}
 
         <Accordion type="single" collapsible>
-          {faqItems.map((item, i) => (
+          {items.map((item, i) => (
             <AccordionItem key={i} value={`item-${i}`}>
               <AccordionTrigger>{item.q}</AccordionTrigger>
               <AccordionContent>{item.a}</AccordionContent>
