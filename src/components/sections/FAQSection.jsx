@@ -3,10 +3,14 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@/components/ui/accordion";
-import { faqItems } from "@/data/faq";
+} from '@/components/ui/accordion';
+import { faqItems } from '@/data/faq';
 
-export default function FAQSection({ showHeading = true, items = faqItems, id }) {
+export default function FAQSection({
+  showHeading = true,
+  items = faqItems,
+  id,
+}) {
   return (
     <section id={id} className="bg-white py-20">
       <div className="mx-auto max-w-3xl px-6">

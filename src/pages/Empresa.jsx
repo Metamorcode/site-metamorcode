@@ -8,7 +8,7 @@ export default function Empresa() {
   return (
     <>
       <section className="bg-white py-16 text-center">
-        <div className="mx-auto max-w-3xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <span className="text-xs font-semibold uppercase tracking-wide text-primary">
             A nossa história
           </span>
@@ -17,7 +17,7 @@ export default function Empresa() {
             escalas da minha equipa"
           </h1>
 
-          <Reveal className="mt-8 space-y-5 text-left text-base leading-relaxed text-ink-soft lg:text-lg">
+          <Reveal className="mt-8 space-y-5 text-justify text-base leading-relaxed text-ink-soft lg:text-lg">
             <p>
               A Metamorcode não começou como uma ideia à procura de mercado.
               Começou com um pedido concreto: o Edu, fundador da Cuidar de Si,
@@ -63,20 +63,21 @@ export default function Empresa() {
               <img
                 src={founderImg}
                 alt="Leonardo Almonfrey, fundador da Metamorcode"
-                className="h-90 w-72 flex-shrink-0 rounded-3xl object-cover sm:h-100 sm:w-96"
+                className="h-90 w-72 flex-shrink-0 rounded-3xl object-cover sm:h-100 sm:w-90"
               />
-              <div className="text-left">
+              <div className="text-justify">
                 <span className="text-xs font-semibold uppercase tracking-wide text-primary">
                   Sobre o fundador
                 </span>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  Por trás da Metamorcode está <strong>Leonardo Almonfrey</strong>.
-                  Formado em Engenharia Química, fez a transição para a tecnologia
-                  através de uma pós-graduação em Business Analytics no ISCAP e
-                  outra em Desenvolvimento Web na PUC-RS — uma combinação que une
-                  visão de negócio e capacidade técnica, e que se reflete
-                  diretamente na forma como a Metamorcode constrói produto: sempre a
-                  partir do problema real, nunca da tecnologia pela tecnologia.
+                <p className="mt-3 text-sm leading-7 text-ink-soft">
+                  Por trás da Metamorcode está{' '}
+                  <strong>Leonardo Almonfrey</strong>. Formado em Engenharia
+                  Química, fez a transição para a tecnologia através de uma
+                  pós-graduação em Business Analytics no ISCAP e outra em
+                  Desenvolvimento Web na PUC-RS — uma combinação que une visão
+                  de negócio e capacidade técnica, e que se reflete diretamente
+                  na forma como a Metamorcode constrói produto: sempre a partir
+                  do problema real, nunca da tecnologia pela tecnologia.
                 </p>
               </div>
             </div>
@@ -84,9 +85,9 @@ export default function Empresa() {
         </div>
       </section>
 
-      <AboutTeaser />
-      <ImpactMetrics />
-      <Testimonial />
+      {/* <AboutTeaser /> */}
+      {/* <ImpactMetrics /> */}
+      {/* <Testimonial /> */}
     </>
   );
 }

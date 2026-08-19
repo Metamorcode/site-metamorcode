@@ -1,6 +1,6 @@
-import FAQSection from "@/components/sections/FAQSection";
-import ContactForm from "@/components/sections/ContactForm";
-import Reveal from "@/components/Reveal";
+import FAQSection from '@/components/sections/FAQSection';
+import ContactForm from '@/components/sections/ContactForm';
+import Reveal from '@/components/Reveal';
 
 export default function SupportPage() {
   return (

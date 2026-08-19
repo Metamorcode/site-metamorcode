@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
-import { AlertCircle, Sparkles } from "lucide-react";
-import { calculatePricing, MIN_EMPLOYEES } from "@/lib/pricing";
-import { seasons, accentClasses } from "@/data/seasons";
-import SeasonToast from "./SeasonToast";
+import { useMemo, useState } from 'react';
+import { AlertCircle, Sparkles } from 'lucide-react';
+import { calculatePricing, MIN_EMPLOYEES } from '@/lib/pricing';
+import { seasons, accentClasses } from '@/data/seasons';
+import SeasonToast from './SeasonToast';
 
 function formatEUR(value) {
-  return value.toLocaleString("pt-PT", { style: "currency", currency: "EUR" });
+  return value.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
 }
 
 export default function PricingSection() {
@@ -15,8 +15,12 @@ export default function PricingSection() {
   const [toastSeason, setToastSeason] = useState(null);
 
   const result = useMemo(
-    () => calculatePricing({ employees: Number(employees) || 0, devices: Number(devices) || 0 }),
-    [employees, devices]
+    () =>
+      calculatePricing({
+        employees: Number(employees) || 0,
+        devices: Number(devices) || 0,
+      }),
+    [employees, devices],
   );
 
   const baseMonthly = result.valid ? result.total : 0;
@@ -42,7 +46,7 @@ export default function PricingSection() {
   }
 
   return (
-    <section className="bg-surface py-20" id="calculadora">
+    <section className="bg-black py-20" id="calculadora">
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-wide text-accent">
@@ -78,9 +82,11 @@ export default function PricingSection() {
                 min={0}
                 value={employees}
                 onChange={(e) => setEmployees(Number(e.target.value))}
-                className="w-24 rounded-lg border border-slate-200 px-3 py-1.5 text-sm"
+                className="w-24 rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-black"
               />
-              <span className="text-xs text-slate-400">mínimo obrigatório: {MIN_EMPLOYEES}</span>
+              <span className="text-xs text-slate-400">
+                mínimo obrigatório: {MIN_EMPLOYEES}
+              </span>
             </div>
 
             <label className="mt-7 block text-sm font-medium text-slate-900">
@@ -101,10 +107,12 @@ export default function PricingSection() {
                 min={0}
                 value={devices}
                 onChange={(e) => setDevices(Number(e.target.value))}
-                className="w-24 rounded-lg border border-slate-200 px-3 py-1.5 text-sm"
+                className="w-24 rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-black"
               />
               <span className="text-xs text-slate-400">
-                {devices > 15 ? "20€/dispositivo (volume escalonado)" : "40€/dispositivo"}
+                {devices > 15
+                  ? '20€/dispositivo (volume escalonado)'
+                  : '40€/dispositivo'}
               </span>
             </div>
 
@@ -122,7 +130,7 @@ export default function PricingSection() {
               Mensalidade estimada
             </span>
             <div className="mt-2 font-display text-4xl">
-              {result.valid ? formatEUR(result.total) : "—"}
+              {result.valid ? formatEUR(result.total) : '—'}
               <span className="text-base font-normal text-white/40"> /mês</span>
             </div>
 
@@ -134,14 +142,16 @@ export default function PricingSection() {
                 </div>
                 <div className="flex justify-between text-white/60">
                   <span>
-                    {employees} colaboradores × {formatEUR(result.breakdown.employeeRate)}
+                    {employees} colaboradores ×{' '}
+                    {formatEUR(result.breakdown.employeeRate)}
                   </span>
                   <span>{formatEUR(result.breakdown.employeesCost)}</span>
                 </div>
                 {devices > 0 && (
                   <div className="flex justify-between text-white/60">
                     <span>
-                      {devices} MetaBox × {formatEUR(result.breakdown.deviceRate)}
+                      {devices} MetaBox ×{' '}
+                      {formatEUR(result.breakdown.deviceRate)}
                     </span>
                     <span>{formatEUR(result.breakdown.devicesCost)}</span>
                   </div>
@@ -151,7 +161,7 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Campanhas sazonais */}
+        {/* Campanhas sazonais
         <div className="mt-10 rounded-xl border border-slate-100 bg-white p-7 shadow-sm">
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-primary" />
@@ -212,10 +222,10 @@ export default function PricingSection() {
               Ajuste o número de colaboradores para ver a simulação da campanha.
             </p>
           )}
-        </div>
+        </div> */}
       </div>
 
-      <SeasonToast season={toastSeason} onClose={() => setToastSeason(null)} />
+      {/* <SeasonToast season={toastSeason} onClose={() => setToastSeason(null)} /> */}
     </section>
   );
 }

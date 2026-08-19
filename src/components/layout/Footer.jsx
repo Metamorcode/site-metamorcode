@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.3fr_2fr] break-words">
           <div>
             <Link to="/" className="mb-3 flex items-center gap-2.5">
-              <img src={logo} alt="Metamorcode" width={30} height={30} />
+              {/* <img src={logo} alt="Metamorcode" width={30} height={30} /> */}
               <span className="font-display text-xl text-white">
                 Metamorcode
               </span>
@@ -63,12 +63,12 @@ export default function Footer() {
                 >
                   Preços e Planos
                 </Link>
-                <Link
+                {/* <Link
                   to="/blog"
                   className="text-sm text-white/50 hover:text-accent"
                 >
                   Artigos
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -106,6 +106,8 @@ export default function Footer() {
                 <a
                   href="https://wa.me/351934340600"
                   className="text-sm text-white/50 hover:text-accent"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   +351 934 340 600
                 </a>

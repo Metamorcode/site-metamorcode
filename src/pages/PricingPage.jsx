@@ -1,5 +1,6 @@
-import PricingSection from "@/components/sections/PricingSection";
-import Reveal from "@/components/Reveal";
+import PricingSection from '@/components/sections/PricingSection';
+import ImpactMetrics from '@/components/sections/ImpactMetrics';
+import Reveal from '@/components/Reveal';
 
 export default function PricingPage() {
   return (
@@ -14,13 +15,15 @@ export default function PricingPage() {
               Um preço justo, para o tamanho da sua equipa
             </h1>
             <p className="mt-4 text-slate-300">
-              Sem letras pequenas: taxa de ativação fixa, custo por
-              colaborador de acordo com o tier, e hardware MetaBox opcional.
-              Simule abaixo o valor exato da sua mensalidade.
+              Sem letras pequenas: taxa de ativação fixa, custo por colaborador
+              de acordo com o tier, e hardware MetaBox opcional. Simule abaixo o
+              valor exato da sua mensalidade.
             </p>
           </Reveal>
         </div>
       </section>
+
+      <ImpactMetrics />
 
       <PricingSection />
     </>
