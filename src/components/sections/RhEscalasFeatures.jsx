@@ -32,8 +32,8 @@ export default function RhEscalasFeatures() {
               const Icon = icons[f.icon];
               return (
                 <Reveal key={f.name} delay={(i % 4) * 50}>
-                  <div className="flex h-full gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-accent">
+                  <div className="group flex h-full gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/20 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-accent transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>

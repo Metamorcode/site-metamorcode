@@ -3,9 +3,9 @@
 
 export const financeiroHero = {
   pill: "Módulo · Financeiro & Billing Engine",
-  title: "Cada hora tem um valor certo — o sistema já sabe qual",
+  title: "Cada hora tem um valor certo, o sistema já sabe qual",
   subtitle:
-    "Diurno, noturno, prestação de serviço ou colaborador sem termo: o MetaSenior calcula o custo real por colaborador e gera a fatura ao cliente com base no que foi realmente trabalhado e validado.",
+    "Diurno, noturno, contrato por hora ou valor mensal fixo: o MetaSenior calcula o custo real por colaborador e gera a fatura ao cliente com base no que foi realmente trabalhado e validado",
   ctaPrimaryLabel: "Agendar Demonstração",
   ctaPrimaryTo: "/suporte#contacto",
   ctaSecondaryLabel: "Ver como o cálculo funciona",
@@ -18,9 +18,9 @@ export const financeiroPainPoints = {
   body:
     "Cruzar picagens com valores à mão, mês após mês, à procura do erro que sempre aparece. Feriados calculados manualmente, horas noturnas separadas com a calculadora, contratos mensais divididos \"a olho\" entre vários colaboradores. O financeiro reabre a folha três vezes antes de aprovar — e mesmo assim um colaborador liga a perguntar se o pagamento já saiu.",
   cards: [
-    "Horas noturnas e diurnas calculadas à mão, turno a turno.",
-    "Contrato mensal dividido por vários colaboradores — sempre a refazer as contas.",
-    "A pré-folha só é aprovada depois de reabrir três vezes.",
+    "Horas noturnas e diurnas calculadas à mão, turno a turno",
+    "Contrato mensal dividido por vários colaboradores, sempre a refazer as contas",
+    "A pré-folha só é aprovada depois de reabrir três vezes",
   ],
   image: {
     ratio: "4:5",
@@ -30,7 +30,7 @@ export const financeiroPainPoints = {
 
 export const financeiroCalculatorIntro = {
   pill: "O motor por trás do valor",
-  title: "Dois vínculos, uma lógica clara para cada um",
+  title: "Dois modelos, uma lógica clara para cada um",
   body:
     "O sistema não usa a mesma fórmula para um contrato de prestação de serviço e para um colaborador sem termo. Mexa nos números e veja, lado a lado, o valor pago ao colaborador e o valor faturado ao cliente — para os dois vínculos mais comuns na operação.",
 };
@@ -48,7 +48,7 @@ export const financeiroCalculatorCopy = {
     totalCollabLabel: "Total pago ao colaborador",
     totalClientLabel: "Total faturado ao cliente",
     explainer:
-      "Hora diurna: 07h–22h. Hora noturna: 22h–07h. Se o turno atravessa os dois períodos, o sistema divide e aplica o valor certo a cada parte — sozinho.",
+      "Hora diurna: 07h–22h. Hora noturna: 22h–07h. Se o turno atravessa os dois períodos, o sistema divide e aplica o valor certo a cada parte, sozinho",
   },
   panelB: {
     label: "Contratado Sem Termo",

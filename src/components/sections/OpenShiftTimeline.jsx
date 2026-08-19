@@ -1,12 +1,14 @@
 import { Sparkles } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import StepTimeline from '@/components/sections/StepTimeline';
+import RainSignalsCanvas from '@/components/sections/RainSignalsCanvas';
 import { rhEscalasOpenShift } from '@/data/rhEscalas';
 
 export default function OpenShiftTimeline() {
   return (
-    <section className="bg-surface py-20">
-      <div className="mx-auto max-w-4xl px-6">
+    <section className="relative overflow-hidden bg-surface py-20">
+      <RainSignalsCanvas />
+      <div className="relative z-10 mx-auto max-w-4xl px-6">
         <Reveal>
           <div className="text-center">
             <span className="relative inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">

@@ -1,6 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Reveal from "@/components/Reveal";
+import RisingParticlesCanvas from "@/components/sections/RisingParticlesCanvas";
 import { financeiroCalculatorIntro, financeiroCalculatorCopy as copy } from "@/data/financeiro";
+
+// Estimativa grosseira do valor total combinado (ambos os painéis) usada só
+// para normalizar a intensidade visual das partículas — não é um limite real.
+const COMBINED_TOTAL_ESTIMATE = 3000;
 
 // Eixo do turno: 18h00 (dia 0) até 18h00 (dia 1) — 24h sem quebra à meia-noite,
 // para o turno (20h–08h por omissão) nunca precisar de "dar a volta" na barra.
@@ -83,7 +88,7 @@ function TotalsPair({ collabLabel, collabValue, clientLabel, clientValue }) {
   );
 }
 
-function PanelServicoPrestado() {
+function PanelServicoPrestado({ onTotalClientChange }) {
   const c = copy.panelA;
   const [shiftStart, setShiftStart] = useState(120); // 20h00 no eixo relativo
   const [rateCollabDay, setRateCollabDay] = useState(6.5);
@@ -96,6 +101,10 @@ function PanelServicoPrestado() {
 
   const totalCollab = (dayMinutes / 60) * rateCollabDay + (nightMinutes / 60) * rateCollabNight;
   const totalClient = (SHIFT_DURATION / 60) * rateClient;
+
+  useEffect(() => {
+    onTotalClientChange?.(totalClient);
+  }, [totalClient, onTotalClientChange]);
 
   return (
     <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
@@ -184,7 +193,7 @@ function PanelServicoPrestado() {
   );
 }
 
-function PanelSemTermo() {
+function PanelSemTermo({ onTotalClientChange }) {
   const c = copy.panelB;
   const [salary, setSalary] = useState(1100);
   const [hoursWorked, setHoursWorked] = useState(160);
@@ -196,6 +205,10 @@ function PanelSemTermo() {
   const overtimeValue = overtimeHours * hourlyRate * overtimeRate;
   const totalCollab = salary + overtimeValue;
   const totalClient = (hoursWorked + overtimeHours) * rateClient;
+
+  useEffect(() => {
+    onTotalClientChange?.(totalClient);
+  }, [totalClient, onTotalClientChange]);
 
   return (
     <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
@@ -297,6 +310,14 @@ function PanelSemTermo() {
 }
 
 export default function FinanceiroCalculatorWidget() {
+  const [totalClientA, setTotalClientA] = useState(0);
+  const [totalClientB, setTotalClientB] = useState(0);
+
+  const intensity = Math.min(
+    1,
+    Math.max(0, (totalClientA + totalClientB) / COMBINED_TOTAL_ESTIMATE),
+  );
+
   return (
     <section id="motor-financeiro" className="bg-black py-20">
       <div className="mx-auto max-w-5xl px-6">
@@ -315,13 +336,16 @@ export default function FinanceiroCalculatorWidget() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
-            <span className="mb-6 block text-xs font-semibold uppercase tracking-wide text-accent">
-              Calculadora de Valor-Hora
-            </span>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <PanelServicoPrestado />
-              <PanelSemTermo />
+          <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+            <RisingParticlesCanvas intensity={intensity} />
+            <div className="relative z-10">
+              <span className="mb-6 block text-xs font-semibold uppercase tracking-wide text-accent">
+                Calculadora de Valor-Hora
+              </span>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <PanelServicoPrestado onTotalClientChange={setTotalClientA} />
+                <PanelSemTermo onTotalClientChange={setTotalClientB} />
+              </div>
             </div>
           </div>
         </Reveal>

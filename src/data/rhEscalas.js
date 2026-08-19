@@ -4,9 +4,9 @@
 export const rhEscalasHero = {
   pill: 'Módulo · RH & Escalas Dinâmicas',
   title:
-    'A escala que se organiza sozinha — mesmo quando tudo muda ao mesmo tempo',
+    'A escala que se organiza sozinha, mesmo quando tudo muda ao mesmo tempo',
   subtitle:
-    'Férias, faltas, baixas médicas, trocas de última hora. O MetaSenior cruza tudo automaticamente antes de deixar escalar um colaborador — para o conflito nunca chegar ao papel.',
+    'Férias, faltas, baixas médicas, trocas de última hora: o MetaSenior cruza tudo automaticamente antes de deixar escalar um colaborador, para o conflito nunca chegar ao papel',
   ctaPrimaryLabel: 'Agendar Demonstração',
   ctaPrimaryTo: '/suporte#contacto',
   ctaSecondaryLabel: 'Ver como as regras funcionam',
@@ -18,9 +18,9 @@ export const rhEscalasPainPoints = {
   title: 'Montar a escala à mão é apostar que ninguém se engana',
   body: 'Gestores de ERPIs e apoio domiciliário fazem hoje esta verificação manualmente, turno a turno: este colaborador já está noutro turno? Já passou tempo suficiente desde o último cliente? Tem a profissão certa? Uma pessoa a verificar isto para dezenas de colaboradores, todos os meses, erra — não por falta de cuidado, mas porque é humanamente impossível cruzar tudo isto de cabeça, sempre.',
   cards: [
-    'A escala do mês só fica pronta na véspera — e muda três vezes.',
-    'Um colaborador aparece escalado em dois clientes ao mesmo tempo, e ninguém dá por isso até ser tarde.',
-    'Trocas de turno combinadas por WhatsApp, sem registo em lado nenhum.',
+    'A escala do mês só fica pronta na véspera, e muda três vezes',
+    'Um colaborador aparece escalado em dois clientes ao mesmo tempo, e ninguém dá por isso até ser tarde',
+    'Trocas de turno combinadas por WhatsApp, sem registo em lado nenhum',
   ],
   image: {
     ratio: '4:5',
@@ -36,10 +36,10 @@ export const rhEscalasRulesIntro = {
 
 export const rhEscalasOpenShift = {
   pill: 'Novidades',
-  title: 'Venda o turno primeiro. Encontre quem o faz depois.',
+  title: 'Venda o turno primeiro, encontre quem o faz depois',
   body: 'Cria-se a reserva do turno — cliente, data, horário, profissão exigida — sem travar a operação à espera de um nome. O sistema já sabe quem cumpre as regras de disponibilidade (as mesmas 3 regras do simulador acima). Em vez de o gestor ligar um a um, a MetaSenior envia automaticamente uma mensagem por WhatsApp a todos os colaboradores elegíveis — o primeiro que aceitar fica com o turno, e a escala fecha-se sozinha nesse momento.',
   footnote:
-    'Já não é preciso escolher um nome para vender o turno — nem esperar a resposta de cada colaborador, um a um, para saber quem topa.',
+    'Já não é preciso escolher um nome para vender o turno, nem esperar a resposta de cada colaborador, um a um, para saber quem topa',
   steps: [
     {
       id: 'reservado',
