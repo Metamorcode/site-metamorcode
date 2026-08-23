@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Hero />
       <Reveal><StatsStrip /></Reveal>
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Reveal><ModuleTabsSection /></Reveal>
       <FinalCTA />
     </>

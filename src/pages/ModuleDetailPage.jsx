@@ -10,11 +10,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { modules } from '@/data/modules';
-import { metabox, metaboxFeatures } from '@/data/metabox';
 import { roadmap, statusStyles } from '@/data/roadmap';
 import { rhEscalasFaq, rhEscalasFinalCta } from '@/data/rhEscalas';
 import { financeiroFaq, financeiroFinalCta } from '@/data/financeiro';
-import MetaBoxMock from '@/components/sections/MetaBoxMock';
+import { tesourariaFaq, tesourariaFinalCta } from '@/data/tesouraria';
+import { metaboxFaq, metaboxFinalCta } from '@/data/metabox';
 import RhEscalasHero from '@/components/sections/RhEscalasHero';
 import RhEscalasPainPoints from '@/components/sections/RhEscalasPainPoints';
 import RhEscalasAvailabilitySimulator from '@/components/sections/RhEscalasAvailabilitySimulator';
@@ -26,6 +26,16 @@ import FinanceiroPainPoints from '@/components/sections/FinanceiroPainPoints';
 import FinanceiroCalculatorWidget from '@/components/sections/FinanceiroCalculatorWidget';
 import FinanceiroFeatures from '@/components/sections/FinanceiroFeatures';
 import FinanceiroProof from '@/components/sections/FinanceiroProof';
+import TesourariaHero from '@/components/sections/TesourariaHero';
+import TesourariaPainPoints from '@/components/sections/TesourariaPainPoints';
+import CostAllocatorWidget from '@/components/sections/CostAllocatorWidget';
+import TesourariaFeatures from '@/components/sections/TesourariaFeatures';
+import TesourariaProof from '@/components/sections/TesourariaProof';
+import MetaBoxHero from '@/components/sections/MetaBoxHero';
+import MetaBoxPainPoints from '@/components/sections/MetaBoxPainPoints';
+import MetaBoxTimeline from '@/components/sections/MetaBoxTimeline';
+import MetaBoxFeatures from '@/components/sections/MetaBoxFeatures';
+import MetaBoxProof from '@/components/sections/MetaBoxProof';
 import FAQSection from '@/components/sections/FAQSection';
 import FinalCTA from '@/components/sections/FinalCTA';
 import Reveal from '@/components/Reveal';
@@ -46,6 +56,7 @@ export default function ModuleDetailPage() {
   const isMetabox = slug === 'metabox';
   const isRhEscalas = slug === 'rh-escalas';
   const isFinanceiro = slug === 'financeiro-billing';
+  const isTesouraria = slug === 'tesouraria-opex';
   const item = roadmap.find((p) => p.slug === slug);
 
   if (isRhEscalas) {
@@ -73,6 +84,34 @@ export default function ModuleDetailPage() {
         {/* <FinanceiroProof />
         <FAQSection items={financeiroFaq} /> */}
         <FinalCTA {...financeiroFinalCta} />
+      </>
+    );
+  }
+
+  if (isTesouraria) {
+    return (
+      <>
+        <TesourariaHero />
+        <TesourariaPainPoints />
+        <CostAllocatorWidget />
+        <TesourariaFeatures />
+        {/* <TesourariaProof />
+        <FAQSection items={tesourariaFaq} /> */}
+        <FinalCTA {...tesourariaFinalCta} />
+      </>
+    );
+  }
+
+  if (isMetabox) {
+    return (
+      <>
+        <MetaBoxHero />
+        <MetaBoxPainPoints />
+        <MetaBoxTimeline />
+        <MetaBoxFeatures />
+        {/* <MetaBoxProof />
+        <FAQSection items={metaboxFaq} /> */}
+        <FinalCTA {...metaboxFinalCta} />
       </>
     );
   }
@@ -128,62 +167,6 @@ export default function ModuleDetailPage() {
           </Reveal>
         </div>
       </section>
-    );
-  }
-
-  if (isMetabox) {
-    return (
-      <>
-        <section className="bg-black py-20">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-              <Reveal>
-                <span className="rounded-full bg-primary/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
-                  Ecossistema de hardware premium
-                </span>
-                <h1 className="mt-4 font-display text-4xl text-white">
-                  {metabox.name}
-                </h1>
-                <p className="mt-4 max-w-md text-base leading-relaxed text-white/60">
-                  {metabox.description}
-                </p>
-
-                <div className="mt-8 space-y-6">
-                  {metaboxFeatures.map((f) => {
-                    const Icon = icons[f.icon];
-                    return (
-                      <div key={f.name} className="flex gap-4">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-accent">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <h3 className="font-display text-lg text-white">
-                            {f.name}
-                          </h3>
-                          <p className="mt-1 text-sm leading-relaxed text-white/50">
-                            {f.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <Button
-                  className="mt-8 bg-primary hover:bg-primary-hover text-white rounded-full"
-                  asChild
-                >
-                  <Link to="/precos">Ver preços do hardware</Link>
-                </Button>
-              </Reveal>
-
-              <Reveal delay={150}>
-                <MetaBoxMock />
-              </Reveal>
-            </div>
-          </div>
-        </section>
-      </>
     );
   }
 
