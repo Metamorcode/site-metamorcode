@@ -35,8 +35,8 @@ export default function StatsStrip() {
               perdem horas a montar escalas em folhas de cálculo, a corrigir
               erros de assiduidade e a recalcular manualmente quanto pagar a
               cada colaborador. O resultado? Noites a fechar a folha salarial,
-              colaboradores insatisfeitos com pagamentos errados, e zero tempo
-              sobrando para o que realmente importa: cuidar de quem precisa
+              colaboradores insatisfeitos com pagamentos errados, e nenhum tempo
+              livre para o que realmente importa: cuidar de quem precisa
               de cuidados.
             </p>
           </div>

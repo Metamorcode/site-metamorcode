@@ -8,7 +8,7 @@ export default function FinalCTA({
   body = 'Veja em segundos quanto custa o MetaSenior para o tamanho da sua operação',
   primaryLabel = 'Ver Preços e Planos',
   primaryTo = '/precos',
-  secondaryLabel = 'Preferir falar primeiro com a equipa?',
+  secondaryLabel = 'Prefere falar primeiro com a equipa?',
   secondaryTo = '/suporte#contacto',
 }) {
   return (

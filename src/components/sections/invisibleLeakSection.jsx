@@ -34,7 +34,7 @@ const LEAKS = [
     sinal:
       'O sintoma: escala do mês pronta apenas na véspera, muda ainda três vezes após',
     tags: [
-      { icon: Users, label: 'Disponibilidade checada uma a uma' },
+      { icon: Users, label: 'Disponibilidade verificada uma a uma' },
       { icon: AlertTriangle, label: 'Conflitos só aparecem depois de fechar' },
       {
         icon: MessageCircleWarning,
