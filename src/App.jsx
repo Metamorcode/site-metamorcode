@@ -7,6 +7,7 @@ import PricingPage from "@/pages/PricingPage";
 import Empresa from "@/pages/Empresa";
 import Blog from "@/pages/Blog";
 import SupportPage from "@/pages/SupportPage";
+import NotFound from "@/pages/NotFound";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="empresa" element={<Empresa />} />
           <Route path="blog" element={<Blog />} />
           <Route path="suporte" element={<SupportPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
